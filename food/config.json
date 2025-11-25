@@ -1,0 +1,16 @@
+{
+  "deliveryDate": {
+    "date": "23 Nov 2025",
+    "dayName": "Sunday"
+  },
+  "deliveryTime": {
+    "startTime": "19:00",
+    "endTime": "20:00",
+    "intervalMinutes": 30
+  },
+  "googleSheets": {
+    "enabled": true,
+    "method": "appsScript",
+    "sheetName": "Orders"
+  }
+}

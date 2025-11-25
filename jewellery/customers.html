@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management - Hallmarking System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="images/company_logo.jpg" alt="Logo" style="height: 40px; width: auto; object-fit: contain;">
+                <span id="navBusinessName">Loading...</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="customers.html" class="active"><i class="fas fa-users"></i> Customers</a></li>
+                <li><a href="orders.html"><i class="fas fa-clipboard-list"></i> Orders</a></li>
+                <li><a href="payments.html"><i class="fas fa-wallet"></i> Payments</a></li>
+                <li><a href="#" onclick="event.preventDefault(); changeWebAppUrl();" title="Change API URL"><i class="fas fa-cog"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                
+                <div style="display: flex; gap: 1rem;">
+                    <button class="btn btn-primary" onclick="openAddCustomerModal()">
+                        <i class="fas fa-plus"></i> New Customer
+                    </button>
+                    <button class="btn btn-primary" onclick="loadCustomersData()">
+                        <i class="fas fa-database"></i> Load Customer Data
+                    </button>
+                </div>
+            </div>
+
+            <div id="customersDataSection" style="display: none;">
+                <div class="section-card">
+                    <div class="section-header">
+                        <input type="text" id="searchCustomer" placeholder="Search by name, phone, or business..." class="search-input">
+                        <button class="btn btn-secondary" onclick="loadCustomersData()">
+                            <i class="fas fa-sync"></i> Refresh
+                        </button>
+                    </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Customer ID</th>
+                                <th>Business Name</th>
+                                <th>Owner Name</th>
+                                <th>Rate/Item</th>
+                                <th>Total Orders</th>
+                                <th>Pending Amount</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customersTable">
+                            <tr>
+                                <td colspan="7" class="text-center">
+                                    <div class="loading-spinner">
+                                        <i class="fas fa-spinner fa-spin"></i> Loading customers...
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </main>
+
+    <div id="customerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-user-plus"></i> <span id="modalTitle">Add New Customer</span></h3>
+                <button class="modal-close" onclick="closeCustomerModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="customerId">
+                <div class="form-group">
+                    <label>Business Name *</label>
+                    <input type="text" id="businessName" class="form-control" placeholder="e.g., ABC Jewellers" required>
+                </div>
+                <div class="form-group">
+                    <label>Owner Name *</label>
+                    <input type="text" id="ownerName" class="form-control" placeholder="e.g., Rajesh Kumar" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="e.g., 9876543210" required>
+                </div>
+                <div class="form-group">
+                    <label>WhatsApp Number (if different)</label>
+                    <input type="tel" id="whatsappNumber" class="form-control" placeholder="Leave blank if same as phone">
+                </div>
+                <div class="form-group">
+                    <label>Rate Per Item (₹) *</label>
+                    <input type="number" id="ratePerItem" class="form-control" placeholder="e.g., 10" min="0" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea id="address" class="form-control" rows="2" placeholder="Shop address"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea id="notes" class="form-control" rows="2" placeholder="Any special notes about this customer"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeCustomerModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveCustomer()">
+                    <i class="fas fa-save"></i> Save Customer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="viewCustomerModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3><i class="fas fa-user"></i> Customer Details</h3>
+                <button class="modal-close" onclick="closeViewCustomerModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="customerDetailsContent">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeViewCustomerModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="settleAllModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3><i class="fas fa-check-double"></i> Settle All Pending Payments</h3>
+                <button class="modal-close" onclick="closeSettleAllModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="settleCustomerId">
+                <div id="settleAllContent">
+                </div>
+                <div class="form-group" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid #e2e8f0;">
+                    <label>Total Amount to Settle (₹) *</label>
+                    <input type="number" id="settleAmount" class="form-control" readonly style="font-size: 1.25rem; font-weight: 700; background: #f8fafc;">
+                </div>
+                <div class="form-group">
+                    <label>Payment Mode *</label>
+                    <select id="settlePaymentMode" class="form-control">
+                        <option value="Cash">Cash</option>
+                        <option value="UPI">UPI</option>
+                        <option value="Card">Card</option>
+                        <option value="Bank Transfer">Bank Transfer</option>
+                        <option value="Cheque">Cheque</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea id="settleNotes" class="form-control" rows="2" placeholder="Settlement notes (optional)"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeSettleAllModal()">Cancel</button>
+                <button class="btn btn-success" onclick="confirmSettleAll()">
+                    <i class="fas fa-check-double"></i> Settle All Pending
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/ui-utils.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/customers.js"></script>
+</body>
+</html>
+

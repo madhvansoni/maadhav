@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Treat - Order Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/admin-styles.css?v=1">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="../images/company_logo.jpeg" alt="Little Treat Logo" class="company-logo-img">
+                    <div class="logo-text">
+                        <h1 class="company-name">Little Treat</h1>
+                        <p class="logo-tagline">Order Dashboard</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="summary-section">
+            <div class="summary-card">
+                <div class="summary-icon">📊</div>
+                <div class="summary-details">
+                    <div class="summary-value" id="totalOrders">0</div>
+                    <div class="summary-label">Total Orders</div>
+                </div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-icon">📅</div>
+                <div class="summary-details">
+                    <div class="summary-value" id="todayOrders">0</div>
+                    <div class="summary-label">Today's Orders</div>
+                </div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-icon">💰</div>
+                <div class="summary-details">
+                    <div class="summary-value" id="todayRevenue">₹0</div>
+                    <div class="summary-label">Today's Revenue</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-section">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search by Order ID, Flat, Apartment, or Items..." />
+            </div>
+            <div class="sort-controls">
+                <label for="sortSelect">Sort by:</label>
+                <select id="sortSelect" class="sort-select">
+                    <option value="timestamp">Order Time (Newest)</option>
+                    <option value="deliveryTime">Delivery Time</option>
+                </select>
+            </div>
+            <div class="filter-controls">
+                <label for="statusFilter">Status:</label>
+                <select id="statusFilter" class="sort-select">
+                    <option value="all">All Orders</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Dispatched">Dispatched</option>
+                    <option value="Delivered">Delivered</option>
+                </select>
+            </div>
+            <button class="refresh-btn" id="refreshBtn">
+                <i class="fas fa-sync-alt"></i> Refresh
+            </button>
+        </div>
+
+        <div class="loading-state" id="loadingState">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading orders...</p>
+        </div>
+
+        <div class="error-state" id="errorState" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p id="errorMessage">Failed to load orders</p>
+            <button class="retry-btn" onclick="loadOrders()">Try Again</button>
+        </div>
+
+        <div class="orders-section" id="ordersSection" style="display: none;">
+            <h2 class="section-title">
+                <i class="fas fa-list"></i> Orders 
+                <span class="order-count" id="displayCount">(0)</span>
+            </h2>
+            
+            <div class="table-container">
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Delivery Date</th>
+                            <th>Delivery Time</th>
+                            <th>Address</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Ordered At</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <i class="fas fa-inbox"></i>
+                <p>No orders found</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div>Little Treat Order Dashboard</div>
+            <div><i class="fas fa-phone-alt"></i> +91 7874914422</div>
+        </footer>
+    </div>
+
+    <script src="../services/ServiceConfig.js"></script>
+    <script src="../services/OrderService.js"></script>
+    <script src="../models/AdminModel.js"></script>
+    <script src="../views/AdminView.js"></script>
+    <script src="../controllers/AdminController.js"></script>
+    <script src="../js/admin-app.js"></script>
+</body>
+</html>
+

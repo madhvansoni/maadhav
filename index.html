@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Treat - Premium Chocolates & Confections | Ahmedabad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="shop/assets/css/style.css">
+</head>
+<body>
+    <div class="floating-elements" aria-hidden="true">
+        <div class="floating-element">🍫</div>
+        <div class="floating-element">🧁</div>
+        <div class="floating-element">🍰</div>
+        <div class="floating-element">🍪</div>
+    </div>
+    <header class="main-header">
+        <div class="header-logo-container">
+            <div class="header-logo">
+                <img src="shop/images/company_logo.jpeg" alt="Little Treat Logo" class="header-company-logo-img">
+                <div class="header-logo-text">
+                    <h1 class="header-company-name">Little Treat</h1>
+                    <p class="header-logo-tagline">Premium Chocolates & Confections</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="quick-info-banner">
+            <div class="container">
+                <div class="info-items">
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Pre-Orders: 24-48 hours in advance</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-gift"></i>
+                        <span>Custom Gift Hampers Available</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-heart"></i>
+                        <span>Lovingly crafted by Foram</span>
+                    </div>
+                    
+                    <a href="https://www.instagram.com/little_treat_ahmedabad" target="_blank" class="info-item info-link">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="menu" aria-labelledby="menu-heading">
+            <div class="container">
+                <p class="menu-subtitle">Handcrafted chocolates made with the finest ingredients. Choose your favorites and place your order!</p>
+                <div id="step1" class="step active">
+                    <div id="menu-root" class="menu-grid" role="list"></div>
+                    <section class="order-summary" aria-live="polite">
+                        <div class="order-summary__details">
+                            <h3>Your Selection</h3>
+                            <ul id="order-items" class="order-summary__list"></ul>
+                        </div>
+                        <div class="order-summary__actions">
+                            <p class="order-summary__total">Total: <span id="order-total">₹0</span></p>
+                            <p class="order-note">* Packaging charges extra</p>
+                            <button id="proceed-btn" class="cta-button" type="button">
+                                Proceed to Delivery & Review <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </section>
+                </div>
+                <div id="step2" class="step" style="display: none;">
+                    <div class="order-form-section">
+                        <h3 style="color: var(--deep-purple); margin-bottom: 20px; text-align: center;">
+                            <i class="fas fa-map-marker-alt"></i> Delivery Information & Review
+                        </h3>
+                        <div class="form-group">
+                            <label class="form-label">📍 Delivery Address</label>
+                            <div class="address-grid">
+                                <input type="text" class="form-input" id="flatNumber" placeholder="Flat / House Number" required>
+                                <input list="apartmentList" type="text" class="form-input" id="apartmentName" placeholder="Apartment / Society Name" required>
+                                <datalist id="apartmentList">
+                                    <option value="Swastik Greens">
+                                    <option value="Sheladia Sarva">
+                                    <option value="Sun Atomsphere">
+                                    <option value="Swati Chrysantha">
+                                    <option value="Kavisha Panorama">
+                                    <option value="Serenity Sky">
+                                    <option value="Sanidhya Flora">
+                                </datalist>
+                            </div>
+                            <div class="error-message" id="addressError">Please fill in both address fields</div>
+                        </div>
+                        <div id="final-order-summary" style="margin: 25px 0;"></div>
+                        <div class="order-row total-price" style="font-size: 1.5em; margin-top: 20px;">
+                            <span>Total Amount:</span>
+                            <span id="finalTotalPrice">₹0</span>
+                        </div>
+                        <p class="order-note-checkout">* Total price is exclusive of packaging charges</p>
+
+                        <div class="nav-buttons">
+                            <button class="btn-secondary" id="back-btn">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button class="cta-button" id="book-order">
+                                <i class="fab fa-whatsapp"></i> Book Order on WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="about" class="about-compact">
+            <div class="container">
+                <div class="about-compact-content">
+                    <div class="about-icon">🍫</div>
+                    <div class="about-text-compact">
+                        <h3>Handcrafted with deliciousness</h3>
+                        <p>Every chocolate is carefully made using the finest ingredients. Pre-order 24-48 hours in advance for maximum freshness. Custom gift hampers available for all occasions!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <button id="category-menu-btn" class="floating-menu-btn" aria-label="Open category menu">
+        <i class="fas fa-bars"></i>
+        <span>Menu</span>
+    </button>
+
+    <div id="category-menu" class="category-menu" style="display: none;">
+        <div class="category-menu-header">
+            <h3>Categories</h3>
+            <button id="close-category-menu" class="close-menu-btn" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="category-list" class="category-list">
+        </div>
+    </div>
+
+    <div id="sticky-cart" class="sticky-cart" style="display: none;">
+        <div class="sticky-cart-content">
+            <div class="cart-info">
+                <span class="cart-items-count" id="cart-count">0 items</span>
+                <span class="cart-divider">|</span>
+                <span class="cart-total" id="cart-total-sticky">₹0</span>
+            </div>
+            <button id="view-cart-btn" class="view-cart-btn">
+                View Cart <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="category-overlay" class="category-overlay" style="display: none;"></div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Little Treat</h4>
+                    <p>Handcrafted chocolates made deliciously in Ahmedabad. Pre-orders & custom gift hampers available.</p>
+                    <p class="footer-tagline">💜 Lovingly crafted by Foram</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone"></i> +91 7874914422</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Bopal & Shela, Ahmedabad</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/little_treat_ahmedabad" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/917874914422" target="_blank" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <p><a href="#menu">Browse Menu</a></p>
+                    <p><a href="https://wa.me/917874914422" target="_blank">Place Order</a></p>
+                    <p><a href="food/index.html">Home Made Foods</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Little Treat. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="shop/assets/js/ServiceConfig.js"></script>
+    <script src="shop/assets/js/app.js"></script>
+</body>
+</html>

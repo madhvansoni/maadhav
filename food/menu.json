@@ -1,0 +1,86 @@
+{
+  "menuItems": [
+    {
+      "id": "vadapav",
+      "name": "Mumbai Style Vadapav",
+      "description": "Spicy potato fritter in soft bun",
+      "price": 30,
+      "unit": "piece",
+      "emoji": "🍔",
+      "image": null,
+      "display": 0
+    },
+    {
+      "id": "dabeli",
+      "name": "Kutchi Butter Dabeli",
+      "description": "Real taste of kutchh made with amul butter",
+      "price": 30,
+      "unit": "piece",
+      "emoji": "🌮",
+      "image": "images/dabeli.jpeg",
+      "display": 0
+    },
+    {
+      "id": "sandwich",
+      "name": "Grilled Sandwich",
+      "description": "Veggie sandwich with cheese & chutney",
+      "price": 40,
+      "unit": "piece",
+      "emoji": "🥪",
+      "image": null,
+      "display": 0
+    },
+    {
+      "id": "pavbhaji",
+      "name": "Pav Bhaji",
+      "description": "Buttery mashed vegetables with soft pav",
+      "price": 50,
+      "unit": "plate",
+      "emoji": "🍛",
+      "image": null,
+      "display": 0
+    },
+    {
+      "id": "custardapple",
+      "name": "Sitafal",
+      "description": "Fresh imported custard apples. 85 Rs per Kg.",
+      "price": 85,
+      "originalPrice": 100,
+      "unit": "kg",
+      "emoji": "🍏",
+      "image": "images/Custard_Apple.png",
+      "display": 1
+    },
+    {
+      "id": "sabudanavada",
+      "name": "Sabudana Vada",
+      "description": "Crispy fried sabudana patties, perfect for fasting",
+      "price": 35,
+      "unit": "piece",
+      "emoji": "🥘",
+      "image": "images/Sabudana_vada.jpeg",
+      "display": 0
+    },
+    {
+      "id": "vegetablefrankie",
+      "name": "Vegetable Frankie",
+      "description": "Delicious rolled wrap with mixed vegetables and spices",
+      "price": 30,
+      "unit": "piece",
+      "emoji": "🌯",
+      "image": "images/vegetable-frankie.jpeg",
+      "display": 1
+    },
+    {
+      "id": "cheesevegfrankie",
+      "name": "Cheese Vegetable Frankie",
+      "description": "Rolled wrap with mixed vegetables, cheese and spices",
+      "price": 40,
+      "unit": "piece",
+      "emoji": "🌯",
+      "image": "images/vegetablecheese-frankie.jpeg",
+      "display": 1
+    }
+  ]
+}
+

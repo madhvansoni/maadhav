@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Little Treat Home made foods - Pre-book Your Order</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?v=2">
+</head>
+<body>
+    <!-- Cute food animations -->
+    <div class="food-animation food1">🍔</div>
+    <div class="food-animation food2">🥪</div>
+    <div class="food-animation food3">🌮</div>
+    <div class="food-animation food4">🍰</div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="food/images/company_logo.jpeg?v=2" alt="Little Treat Logo" class="company-logo-img">
+                    <div class="logo-text">
+                        <h1 class="company-name">Little Treat</h1>
+                        <p class="logo-tagline">Home made foods | Bopal | Shela</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="product-section step active" id="step1">
+            
+            <button class="book-button center-button" onclick="proceedToAddress()" id="proceedBtn">
+                Proceed to Delivery & Review <i class="fas fa-arrow-right"></i>
+            </button>
+        </section>
+
+        <section class="product-section step" id="step2">
+            <div class="order-section">
+               
+                <div class="form-group">
+                    <label class="form-label">📍 Delivery Address</label>
+                    <div class="address-grid">
+                        <input type="text" class="form-input" id="flatNumber" placeholder="Flat Number" required oninput="updateLiveReview()">
+                        <input list="apartmentList" type="text" class="form-input" id="apartmentName" placeholder="Apartment Name" required oninput="updateLiveReview()">
+                        <datalist id="apartmentList">
+                            <option value="Swastik Greens">
+                            <option value="Sheladia Sarva">
+                            <option value="Sun Atomsphere">
+                            <option value="Swati Chrysantha">
+                            <option value="Kavisha Panorama">
+                            <option value="Serenity Sky">
+                            <option value="Sanidhya Flora">
+                            
+                        </datalist>
+                    </div>
+                    <div class="error-message" id="addressError">Please fill in both address fields</div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="dateSelect">📅 Delivery Date & Time - Loading...</label>
+                    <select class="form-select" id="dateSelect" required onchange="updateLiveReview()">
+                        <option value="">Loading delivery times...</option>
+                    </select>
+                    <div class="error-message" id="dateError">Please select a delivery time</div>
+                </div>
+
+                <div id="liveOrderSummary" style="margin-bottom: 25px;"></div>
+
+                <div class="order-row total-price" style="font-size: 1.5em; margin-top: 20px;">
+                    <span>Total Amount:</span>
+                    <span id="finalTotalPrice">₹0</span>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn-secondary" onclick="goToStep(1)">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button class="book-button" onclick="bookOrder()">
+                    <i class="fab fa-whatsapp"></i> Book Order
+                </button>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="contact-info">
+                <i class="fas fa-phone-alt"></i> Contact us: <span class="contact-number">+91 7874914422</span>
+            </div>
+            <div>Made with ❤️ by Little Treat Home made foods</div>
+        </footer>
+    </div>
+
+    <script src="models/MenuModel.js?v=2"></script>
+    <script src="views/MenuView.js?v=2"></script>
+    <script src="services/ServiceConfig.js?v=2"></script>
+    <script src="services/GoogleSheetsService.js?v=2"></script>
+    <script src="controllers/MenuController.js?v=2"></script>
+    <script src="js/app.js?v=2"></script>
+</body>
+
+</html>

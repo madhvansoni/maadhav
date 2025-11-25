@@ -1,0 +1,8 @@
+{
+  "googleSheets": {
+    "enabled": true,
+    "method": "appsScript",
+    "sheetName": "chocolates_orders"
+  },
+  "whatsappNumber": "+91 7874914422"
+}
