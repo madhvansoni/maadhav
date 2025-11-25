@@ -100,7 +100,25 @@ function populateCustomerDropdown() {
         `).join('');
 }
 
-function openAddOrderModal() {
+async function openAddOrderModal() {
+    if (allCustomers.length === 0) {
+        try {
+            showLoading('Loading customers...');
+            await loadConfig();
+            const customersResponse = await api.getCustomers();
+            if (customersResponse.status === 'success') {
+                allCustomers = customersResponse.customers || [];
+                populateCustomerDropdown();
+            }
+            hideLoading();
+        } catch (error) {
+            console.error('Error loading customers:', error);
+            hideLoading();
+            showNotification('Failed to load customers', 'error');
+            return;
+        }
+    }
+    
     const today = new Date().toISOString().split('T')[0];
     document.getElementById('orderDate').value = today;
     document.getElementById('orderCustomerId').value = '';

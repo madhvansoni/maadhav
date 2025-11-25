@@ -15,12 +15,12 @@
                 <h1 style="margin: 0 0 0.5rem 0; color: var(--dark);">
                     <i class="fas fa-cog"></i> First Time Setup
                 </h1>
-                <p style="color: #64748b; margin: 0;">Configure your Hallmarking Centre System</p>
+                <p style="color: #64748b; margin: 0;">Configure your shop</p>
             </div>
             
             <div class="form-group">
                 <label style="display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-link"></i> Secret Url *
+                    <i class="fas fa-link"></i> Secret URL *
                 </label>
                 <input type="url" id="webAppUrl" class="form-control" 
                        placeholder="Secret Url" 
@@ -56,21 +56,15 @@
             }
             
             if (!url.startsWith('https://script.google.com')) {
-                alert('❌ Please enter a valid Google Apps Script URL\n\nIt should start with: https://script.google.com');
+                alert('❌ Invalid URL');
                 return;
             }
             
-            // Save to localStorage
             localStorage.setItem('webAppUrl', url);
-            
-            // Show success message
             alert('✅ Configuration saved successfully!\n\nRedirecting to dashboard...');
-            
-            // Redirect to dashboard
             window.location.href = 'index.html';
         }
         
-        // Check if URL is already set
         window.addEventListener('DOMContentLoaded', () => {
             const existingUrl = localStorage.getItem('webAppUrl');
             if (existingUrl) {
@@ -80,5 +74,4 @@
     </script>
 </body>
 </html>
-
 
