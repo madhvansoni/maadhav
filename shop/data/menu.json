@@ -1,6 +1,45 @@
 {
   "categories": [
     {
+      "id": "christmas-special",
+      "name": "🎄 Christmas Special",
+      "description": "Celebrate the festive season with our limited edition Christmas chocolates!",
+      "items": [
+        {
+          "id": "dry-fruits-berries-lollipop",
+          "name": "Dry Fruits & Berries Lollipop",
+          "icon": "🍭",
+          "description": "Delicious lollipop chocolate loaded with dry fruits and berries.",
+          "price": 30,
+          "unitLabel": "₹30 per piece"
+        },
+        {
+          "id": "christmas-special-lollipop",
+          "name": "Christmas Special Lollipop",
+          "icon": "🎅",
+          "description": "Festive lollipop chocolate with special Christmas design.",
+          "price": 30,
+          "unitLabel": "₹30 per piece"
+        },
+        {
+          "id": "christmas-theme-set-small",
+          "name": "Christmas Theme Chocolate Set Small pack",
+          "icon": "🎁",
+          "description": "Beautiful pack of 6 Christmas themed chocolates, perfect for gifting!",
+          "price": 70,
+          "unitLabel": "70 per pack of 6"
+        },
+        {
+          "id": "christmas-theme-set-big",
+          "name": "Christmas Theme Chocolate Set Big pack",
+          "icon": "🎁",
+          "description": "Beautiful pack of 9 Christmas themed chocolates, perfect for gifting!",
+          "price": 150,
+          "unitLabel": "150 per pack of 9"
+        }
+      ]
+    },
+    {
       "id": "plain-chocolates",
       "name": "Plain Chocolates",
       "description": "Classic handcrafted chocolates made to order, available in three decadent profiles.",
