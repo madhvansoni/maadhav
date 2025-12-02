@@ -19,7 +19,7 @@
       "emoji": "🍔",
       "image": "images/burger.jpg",
       "display": 0
-    }
+    },
     {
       "id": "dabeli",
       "name": "Kutchi Butter Dabeli",
@@ -113,6 +113,7 @@
     }
   ]
 }
+
 
 
 
