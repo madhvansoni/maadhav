@@ -22,13 +22,33 @@
     },
     {
       "id": "sandwich",
-      "name": "Grilled Sandwich",
-      "description": "Veggie sandwich with cheese & chutney",
-      "price": 40,
+      "name": "Vegetable Sandwich",
+      "description": "Whole wheat, Vegetables",
+      "price": 45,
       "unit": "piece",
       "emoji": "🥪",
       "image": null,
-      "display": 0
+      "display": 1
+    },
+    {
+      "id": "grilledsandwich",
+      "name": "Grilled Vegetable Sandwich",
+      "description": "Whole wheat, Amul butter and veggies",
+      "price": 60,
+      "unit": "piece",
+      "emoji": "🥪",
+      "image": null,
+      "display": 1
+    },
+    {
+      "id": "grilledcheesesandwich",
+      "name": "Cheese Grilled Vegetable Sandwich",
+      "description": "Whole wheat, Amul cheese and veggies",
+      "price": 60,
+      "unit": "piece",
+      "emoji": "🥪",
+      "image": null,
+      "display": 1
     },
     {
       "id": "pavbhaji",
@@ -49,7 +69,7 @@
       "unit": "kg",
       "emoji": "🍏",
       "image": "images/Custard_Apple.png",
-      "display": 1
+      "display": 0
     },
     {
       "id": "sabudanavada",
@@ -69,7 +89,7 @@
       "unit": "piece",
       "emoji": "🌯",
       "image": "images/vegetable-frankie.jpeg",
-      "display": 1
+      "display": 0
     },
     {
       "id": "cheesevegfrankie",
@@ -79,8 +99,9 @@
       "unit": "piece",
       "emoji": "🌯",
       "image": "images/vegetablecheese-frankie.jpeg",
-      "display": 1
+      "display": 0
     }
   ]
 }
+
 
