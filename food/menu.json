@@ -17,7 +17,7 @@
       "price": 45,
       "unit": "piece",
       "emoji": "🍔",
-      "image": images/burger.jpg,
+      "image": "images/burger.jpg",
       "display": 0
     }
     {
@@ -113,6 +113,7 @@
     }
   ]
 }
+
 
 
 
