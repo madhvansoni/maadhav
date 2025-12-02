@@ -1,7 +1,7 @@
 {
   "deliveryDate": {
-    "date": "23 Nov 2025",
-    "dayName": "Sunday"
+    "date": "02 Dec 2025",
+    "dayName": "Tuesday"
   },
   "deliveryTime": {
     "startTime": "19:00",
@@ -14,3 +14,4 @@
     "sheetName": "Orders"
   }
 }
+
