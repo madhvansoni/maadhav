@@ -18,7 +18,7 @@
       "unit": "piece",
       "emoji": "🍔",
       "image": "images/burger.jpg",
-      "display": 0
+      "display": 1
     },
     {
       "id": "dabeli",
@@ -38,7 +38,7 @@
       "unit": "piece",
       "emoji": "🥪",
       "image": null,
-      "display": 1
+      "display": 0
     },
     {
       "id": "grilledsandwich",
@@ -113,6 +113,7 @@
     }
   ]
 }
+
 
 
 
