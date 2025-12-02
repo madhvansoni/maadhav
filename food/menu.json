@@ -11,6 +11,16 @@
       "display": 0
     },
     {
+      "id": "burger",
+      "name": "Veg Burger",
+      "description": "vegetable patties, fresh, crisp garden vegetables, and a generous spread of creamy Amul butter",
+      "price": 45,
+      "unit": "piece",
+      "emoji": "🍔",
+      "image": images/burger.jpg,
+      "display": 0
+    }
+    {
       "id": "dabeli",
       "name": "Kutchi Butter Dabeli",
       "description": "Real taste of kutchh made with amul butter",
@@ -103,5 +113,6 @@
     }
   ]
 }
+
 
 
