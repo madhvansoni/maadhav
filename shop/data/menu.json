@@ -40,40 +40,6 @@
       ]
     },
     {
-      "id": "plain-chocolates",
-      "name": "Plain Chocolates",
-      "description": "Classic handcrafted chocolates made to order, available in three decadent profiles.",
-      "items": [
-        {
-          "id": "plain-white",
-          "name": "Plain White Chocolate",
-          "icon": "🤍",
-          "image": "shop/images/plain_white.jpeg",
-          "description": "Velvety white couverture with a creamy finish.",
-          "price": 15,
-          "unitLabel": "₹15 per piece"
-        },
-        {
-          "id": "plain-dark",
-          "name": "Plain Dark Chocolate",
-          "icon": "🖤",
-          "image": "shop/images/plain_dark.jpeg",
-          "description": "Rich 55% dark chocolate with a smooth snap.",
-          "price": 15,
-          "unitLabel": "₹15 per piece"
-        },
-        {
-          "id": "plain-milk",
-          "name": "Plain Milk Chocolate",
-          "icon": "🤎",
-          "image": "shop/images/plain_milk.jpeg",
-          "description": "Classic milk chocolate, silky and comforting.",
-          "price": 15,
-          "unitLabel": "₹15 per piece"
-        }
-      ]
-    },
-    {
       "id": "flavoured-bites",
       "name": "Signature Flavoured Bites",
       "description": "Playful flavour pairings crafted to surprise your palate.",
@@ -234,6 +200,40 @@
           "description": "Soft chew toffee wrapped in chocolate.",
           "price": 10,
           "unitLabel": "₹10 per piece"
+        }
+      ]
+    },
+    {
+      "id": "plain-chocolates",
+      "name": "Plain Chocolates",
+      "description": "Classic handcrafted chocolates made to order, available in three decadent profiles.",
+      "items": [
+        {
+          "id": "plain-white",
+          "name": "Plain White Chocolate",
+          "icon": "🤍",
+          "image": "shop/images/plain_white.jpeg",
+          "description": "Velvety white couverture with a creamy finish.",
+          "price": 15,
+          "unitLabel": "₹15 per piece"
+        },
+        {
+          "id": "plain-dark",
+          "name": "Plain Dark Chocolate",
+          "icon": "🖤",
+          "image": "shop/images/plain_dark.jpeg",
+          "description": "Rich 55% dark chocolate with a smooth snap.",
+          "price": 15,
+          "unitLabel": "₹15 per piece"
+        },
+        {
+          "id": "plain-milk",
+          "name": "Plain Milk Chocolate",
+          "icon": "🤎",
+          "image": "shop/images/plain_milk.jpeg",
+          "description": "Classic milk chocolate, silky and comforting.",
+          "price": 15,
+          "unitLabel": "₹15 per piece"
         }
       ]
     }
