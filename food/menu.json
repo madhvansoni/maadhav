@@ -7,7 +7,7 @@
       "price": 30,
       "unit": "piece",
       "emoji": "🍔",
-      "image": null,
+      "image": "images/vadapav.jpeg",
       "display": 1
     },
     {
@@ -17,7 +17,7 @@
       "price": 40,
       "unit": "piece",
       "emoji": "🍔",
-      "image": null,
+      "image": "images/vadapav.jpeg",
       "display": 1
     },
     {
@@ -27,7 +27,7 @@
       "price": 35,
       "unit": "piece",
       "emoji": "🍔",
-      "image": null,
+      "image": "images/vadapav.jpeg",
       "display": 1
     },
     {
