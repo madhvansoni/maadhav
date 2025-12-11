@@ -8,7 +8,27 @@
       "unit": "piece",
       "emoji": "🍔",
       "image": null,
-      "display": 0
+      "display": 1
+    },
+    {
+      "id": "butterfriedvadapav",
+      "name": "Butter Fried Vadapav",
+      "description": "Spicy potato fritter in soft bun",
+      "price": 40,
+      "unit": "piece",
+      "emoji": "🍔",
+      "image": null,
+      "display": 1
+    },
+    {
+      "id": "oilfriedvadapav",
+      "name": "Oil Fried Vadapav",
+      "description": "Spicy potato fritter in soft bun",
+      "price": 35,
+      "unit": "piece",
+      "emoji": "🍔",
+      "image": null,
+      "display": 1
     },
     {
       "id": "burger",
@@ -18,7 +38,7 @@
       "unit": "piece",
       "emoji": "🍔",
       "image": "images/burger.jpg",
-      "display": 1
+      "display": 0
     },
     {
       "id": "dabeli",

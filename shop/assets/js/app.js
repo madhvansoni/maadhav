@@ -228,6 +228,56 @@ class MenuView {
         card.className = 'menu-item';
         card.dataset.itemId = item.id;
 
+        // Content section (left side)
+        const content = document.createElement('div');
+        content.className = 'menu-item__content';
+
+        // Header with name only
+        const header = document.createElement('div');
+        header.className = 'menu-item__header';
+
+        const name = document.createElement('h4');
+        name.className = 'menu-item__name';
+        
+        // Only add icon if NO image is available
+        if (item.icon && !item.image) {
+            const icon = document.createElement('span');
+            icon.className = 'menu-item__icon';
+            icon.textContent = item.icon;
+            name.appendChild(icon);
+        }
+        
+        const nameText = document.createTextNode(item.name);
+        name.appendChild(nameText);
+        header.appendChild(name);
+
+        content.appendChild(header);
+
+        // Description
+        if (item.description) {
+            const description = document.createElement('p');
+            description.className = 'menu-item__description';
+            description.textContent = item.description;
+            content.appendChild(description);
+        }
+
+        // Price after description
+        const price = document.createElement('div');
+        price.className = 'menu-item__price';
+        price.textContent = this.currencyFormatter.format(item.price);
+        content.appendChild(price);
+
+        // Unit label
+        if (item.unitLabel) {
+            const note = document.createElement('p');
+            note.className = 'menu-item__note';
+            note.textContent = item.unitLabel;
+            content.appendChild(note);
+        }
+
+        card.appendChild(content);
+
+        // Image section (right side) with Add button overlay
         if (item.image) {
             const imageContainer = document.createElement('div');
             imageContainer.className = 'menu-item__image-container';
@@ -249,76 +299,97 @@ class MenuView {
             };
             
             imageContainer.appendChild(image);
+
+            // Add button overlay at bottom of image
+            const addButtonOverlay = document.createElement('div');
+            addButtonOverlay.className = 'menu-item__add-overlay';
+
+            // ADD button (shown when quantity is 0)
+            const addButton = document.createElement('button');
+            addButton.className = 'add-button';
+            addButton.type = 'button';
+            addButton.dataset.action = 'add';
+            addButton.dataset.itemId = item.id;
+            addButton.setAttribute('aria-label', `Add ${item.name}`);
+            addButton.textContent = 'ADD';
+
+            // Quantity selector (shown when quantity > 0)
+            const quantity = document.createElement('div');
+            quantity.className = 'quantity-selector';
+            quantity.style.display = 'none'; // Hidden initially
+
+            const decrement = document.createElement('button');
+            decrement.className = 'quantity-button';
+            decrement.type = 'button';
+            decrement.dataset.action = 'decrease';
+            decrement.dataset.itemId = item.id;
+            decrement.setAttribute('aria-label', `Remove one ${item.name}`);
+            decrement.innerHTML = '<i class="fas fa-minus"></i>';
+
+            const value = document.createElement('span');
+            value.className = 'quantity-value';
+            value.dataset.quantityFor = item.id;
+            value.textContent = '0';
+
+            const increment = document.createElement('button');
+            increment.className = 'quantity-button';
+            increment.type = 'button';
+            increment.dataset.action = 'increase';
+            increment.dataset.itemId = item.id;
+            increment.setAttribute('aria-label', `Add one ${item.name}`);
+            increment.innerHTML = '<i class="fas fa-plus"></i>';
+
+            quantity.append(decrement, value, increment);
+            addButtonOverlay.appendChild(addButton);
+            addButtonOverlay.appendChild(quantity);
+            imageContainer.appendChild(addButtonOverlay);
+            
             card.appendChild(imageContainer);
-        } else if (item.icon) {
-            const icon = document.createElement('span');
-            icon.className = 'menu-item__icon';
-            icon.textContent = item.icon;
-            card.appendChild(icon);
+        } else {
+            // If no image, show controls below content
+            const controls = document.createElement('div');
+            controls.className = 'menu-item__controls';
+
+            // ADD button (shown when quantity is 0)
+            const addButton = document.createElement('button');
+            addButton.className = 'add-button';
+            addButton.type = 'button';
+            addButton.dataset.action = 'add';
+            addButton.dataset.itemId = item.id;
+            addButton.setAttribute('aria-label', `Add ${item.name}`);
+            addButton.textContent = 'ADD';
+
+            // Quantity selector (shown when quantity > 0)
+            const quantity = document.createElement('div');
+            quantity.className = 'quantity-selector';
+            quantity.style.display = 'none'; // Hidden initially
+
+            const decrement = document.createElement('button');
+            decrement.className = 'quantity-button';
+            decrement.type = 'button';
+            decrement.dataset.action = 'decrease';
+            decrement.dataset.itemId = item.id;
+            decrement.setAttribute('aria-label', `Remove one ${item.name}`);
+            decrement.innerHTML = '<i class="fas fa-minus"></i>';
+
+            const value = document.createElement('span');
+            value.className = 'quantity-value';
+            value.dataset.quantityFor = item.id;
+            value.textContent = '0';
+
+            const increment = document.createElement('button');
+            increment.className = 'quantity-button';
+            increment.type = 'button';
+            increment.dataset.action = 'increase';
+            increment.dataset.itemId = item.id;
+            increment.setAttribute('aria-label', `Add one ${item.name}`);
+            increment.innerHTML = '<i class="fas fa-plus"></i>';
+
+            quantity.append(decrement, value, increment);
+            controls.appendChild(addButton);
+            controls.appendChild(quantity);
+            content.appendChild(controls);
         }
-
-        const header = document.createElement('div');
-        header.className = 'menu-item__header';
-
-        const titleWrapper = document.createElement('div');
-        const name = document.createElement('h4');
-        name.className = 'menu-item__name';
-        name.textContent = item.name;
-        titleWrapper.appendChild(name);
-
-        if (item.description) {
-            const description = document.createElement('p');
-            description.className = 'menu-item__description';
-            description.textContent = item.description;
-            titleWrapper.appendChild(description);
-        }
-
-        header.appendChild(titleWrapper);
-
-        const price = document.createElement('span');
-        price.className = 'menu-item__price';
-        price.textContent = this.currencyFormatter.format(item.price);
-        header.appendChild(price);
-
-        card.appendChild(header);
-
-        if (item.unitLabel) {
-            const note = document.createElement('p');
-            note.className = 'menu-item__note';
-            note.textContent = item.unitLabel;
-            card.appendChild(note);
-        }
-
-        const controls = document.createElement('div');
-        controls.className = 'menu-item__controls';
-
-        const quantity = document.createElement('div');
-        quantity.className = 'quantity-selector';
-
-        const decrement = document.createElement('button');
-        decrement.className = 'quantity-button';
-        decrement.type = 'button';
-        decrement.dataset.action = 'decrease';
-        decrement.dataset.itemId = item.id;
-        decrement.setAttribute('aria-label', `Remove one ${item.name}`);
-        decrement.innerHTML = '<i class="fas fa-minus"></i>';
-
-        const value = document.createElement('span');
-        value.className = 'quantity-value';
-        value.dataset.quantityFor = item.id;
-        value.textContent = '0';
-
-        const increment = document.createElement('button');
-        increment.className = 'quantity-button';
-        increment.type = 'button';
-        increment.dataset.action = 'increase';
-        increment.dataset.itemId = item.id;
-        increment.setAttribute('aria-label', `Add one ${item.name}`);
-        increment.innerHTML = '<i class="fas fa-plus"></i>';
-
-        quantity.append(decrement, value, increment);
-        controls.appendChild(quantity);
-        card.appendChild(controls);
 
         return card;
     }
@@ -327,6 +398,17 @@ class MenuView {
         if (!this.menuRoot) return;
 
         this.menuRoot.addEventListener('click', (event) => {
+            // Check for ADD button
+            const addButton = event.target.closest('.add-button');
+            if (addButton) {
+                const itemId = addButton.dataset.itemId;
+                if (itemId) {
+                    handler(itemId, 1);
+                }
+                return;
+            }
+
+            // Check for quantity buttons (+ or -)
             const target = event.target.closest('.quantity-button');
             if (!target) return;
 
@@ -361,6 +443,23 @@ class MenuView {
         const element = this.menuRoot?.querySelector(`[data-quantity-for="${itemId}"]`);
         if (element) {
             element.textContent = String(quantity);
+        }
+
+        // Toggle between ADD button and quantity selector
+        const menuItem = this.menuRoot?.querySelector(`[data-item-id="${itemId}"]`);
+        if (menuItem) {
+            const addButton = menuItem.querySelector('.add-button');
+            const quantitySelector = menuItem.querySelector('.quantity-selector');
+
+            if (addButton && quantitySelector) {
+                if (quantity > 0) {
+                    addButton.style.display = 'none';
+                    quantitySelector.style.display = 'flex';
+                } else {
+                    addButton.style.display = 'block';
+                    quantitySelector.style.display = 'none';
+                }
+            }
         }
     }
 
