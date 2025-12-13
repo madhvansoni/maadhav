@@ -65,7 +65,8 @@
           "image": "shop/images/new_images/pan-masala-pinata.jpeg",
           "description": "Traditional pan masala notes inside a chocolate shell.",
           "price": 10,
-          "unitLabel": "10 per piece"
+          "unitLabel": "10 per piece",
+          "bestSeller": true
         },
         {
           "id": "crispy-coffee-bite",
@@ -74,7 +75,8 @@
           "image": "shop/images/new_images/crispy-coffee-bites.jpeg",
           "description": "Espresso-infused chocolate with a crunchy finish.",
           "price": 15,
-          "unitLabel": "15 per piece"
+          "unitLabel": "15 per piece",
+          "bestSeller": true
         },
         {
           "id": "salted-caramel-bite",
@@ -167,16 +169,17 @@
           "name": "Designer Chocolate Bar",
           "icon": "🎨",
           "image": "shop/images/new_images/designer_bar.jpeg",
-          "description": "Hand-painted bar featuring seasonal inclusions.",
+          "description": "Beautifully crafted artisan bar with elegant hand-painted designs. A stunning edible artwork that tastes as good as it looks!",
           "price": 200
         },
         {
           "id": "designer-bar-customized",
-          "name": "Designer Customized Chocolate Bar",
+          "name": "Personalized Designer Chocolate Bar",
           "icon": "🎨",
           "image": "shop/images/new_images/designer_bar_customized.jpeg",
-          "description": "Customize your bar chocolate with your own design.",
-          "price": 250
+          "description": "Perfect for birthdays, any occasion or special gifts. Add your own name, message, or design to make it truly personal!",
+          "price": 250,
+          "bestSeller": true
         },
         {
           "id": "salted-caramel-bar",

@@ -249,6 +249,15 @@ class MenuView {
         
         const nameText = document.createTextNode(item.name);
         name.appendChild(nameText);
+
+        // Best Seller badge inline with name
+        if (item.bestSeller) {
+            const badge = document.createElement('span');
+            badge.className = 'menu-item__badge';
+            badge.innerHTML = '<i class="fas fa-fire"></i> Best Seller';
+            name.appendChild(badge);
+        }
+
         header.appendChild(name);
 
         content.appendChild(header);
@@ -266,14 +275,6 @@ class MenuView {
         price.className = 'menu-item__price';
         price.textContent = this.currencyFormatter.format(item.price);
         content.appendChild(price);
-
-        // Unit label
-        if (item.unitLabel) {
-            const note = document.createElement('p');
-            note.className = 'menu-item__note';
-            note.textContent = item.unitLabel;
-            content.appendChild(note);
-        }
 
         card.appendChild(content);
 
