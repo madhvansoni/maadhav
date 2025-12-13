@@ -114,6 +114,16 @@ class MenuView {
         this.cartTotalSticky = document.getElementById('cart-total-sticky');
         this.viewCartBtn = document.getElementById('view-cart-btn');
         
+        // New elements
+        this.toast = document.getElementById('toast');
+        this.toastMessage = document.getElementById('toast-message');
+        this.lightbox = document.getElementById('lightbox');
+        this.lightboxImg = document.getElementById('lightbox-img');
+        this.lightboxTitle = document.getElementById('lightbox-title');
+        this.lightboxPrice = document.getElementById('lightbox-price');
+        
+        this.setupLightbox();
+        
         this.currencyFormatter = new Intl.NumberFormat('en-IN', {
             style: 'currency',
             currency: 'INR',
@@ -134,6 +144,63 @@ class MenuView {
                 rootMargin: '0px 0px -50px 0px'
             }
         );
+    }
+    
+    setupLightbox() {
+        if (!this.lightbox) return;
+        
+        const closeBtn = this.lightbox.querySelector('.lightbox__close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => this.closeLightbox());
+        }
+        
+        this.lightbox.addEventListener('click', (e) => {
+            if (e.target === this.lightbox) {
+                this.closeLightbox();
+            }
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.lightbox.style.display !== 'none') {
+                this.closeLightbox();
+            }
+        });
+    }
+    
+    showToast(message) {
+        if (!this.toast || !this.toastMessage) return;
+        
+        this.toastMessage.textContent = message;
+        this.toast.classList.add('show');
+        
+        setTimeout(() => {
+            this.toast.classList.remove('show');
+        }, 2500);
+    }
+    
+    openLightbox(imageSrc, title, price) {
+        if (!this.lightbox) return;
+        
+        this.lightboxImg.src = imageSrc;
+        this.lightboxTitle.textContent = title;
+        this.lightboxPrice.textContent = price;
+        this.lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+    
+    closeLightbox() {
+        if (!this.lightbox) return;
+        
+        this.lightbox.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+    
+    pulseCart() {
+        if (!this.stickyCart) return;
+        
+        this.stickyCart.classList.remove('pulse');
+        void this.stickyCart.offsetWidth; // Trigger reflow
+        this.stickyCart.classList.add('pulse');
     }
 
     renderMenu(categories) {
@@ -298,6 +365,13 @@ class MenuView {
                     imageContainer.appendChild(icon);
                 }
             };
+            
+            // Click image to open lightbox
+            image.style.cursor = 'zoom-in';
+            image.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.openLightbox(item.image, item.name, this.currencyFormatter.format(item.price));
+            });
             
             imageContainer.appendChild(image);
 
@@ -465,14 +539,22 @@ class MenuView {
     }
 
     updateOrderSummary(items, total) {
+        // Always update sticky cart first
+        this.updateStickyCart(items.length, total);
+        
+        // Only update order summary if elements exist
         if (!this.orderList || !this.orderTotal) return;
 
         this.orderList.innerHTML = '';
 
         if (items.length === 0) {
             const emptyState = document.createElement('li');
-            emptyState.className = 'order-summary__item';
-            emptyState.textContent = 'No items selected yet.';
+            emptyState.className = 'empty-cart-state';
+            emptyState.innerHTML = `
+                <div class="empty-cart-state__icon">🛒</div>
+                <p class="empty-cart-state__text">Your cart is empty</p>
+                <p class="empty-cart-state__hint">Tap ADD on items to get started</p>
+            `;
             this.orderList.appendChild(emptyState);
         } else {
             const fragment = document.createDocumentFragment();
@@ -494,8 +576,6 @@ class MenuView {
         }
 
         this.orderTotal.textContent = this.currencyFormatter.format(total);
-        
-        this.updateStickyCart(items.length, total);
     }
     
     updateStickyCart(itemCount, total) {
@@ -695,7 +775,20 @@ class MenuController {
             this.model.setQuantity(itemId, nextQuantity);
             this.view.updateQuantityDisplay(itemId, nextQuantity);
             this.refreshSummary();
+            
+            // Show toast and pulse cart when adding item
+            if (delta > 0 && nextQuantity === 1) {
+                const item = this.model.itemsById.get(itemId);
+                if (item) {
+                    this.view.showToast(`${item.name} added to cart!`);
+                }
+            }
+            
+            if (delta > 0) {
+                this.view.pulseCart();
+            }
         });
+        
 
         this.view.bindProceedToAddress(() => this.handleProceedToAddress());
         this.view.bindBackToMenu(() => this.handleBackToMenu());

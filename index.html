@@ -57,19 +57,6 @@
                 <p class="menu-subtitle">Handcrafted chocolates made with the finest ingredients. <br> You deserve a treat, gift yourself a little treat 😊</p>
                 <div id="step1" class="step active">
                     <div id="menu-root" class="menu-grid" role="list"></div>
-                    <section class="order-summary" aria-live="polite">
-                        <div class="order-summary__details">
-                            <h3>Your Selection</h3>
-                            <ul id="order-items" class="order-summary__list"></ul>
-                        </div>
-                        <div class="order-summary__actions">
-                            <p class="order-summary__total">Total: <span id="order-total">₹0</span></p>
-                            <p class="order-note">* Packaging charges extra</p>
-                            <button id="proceed-btn" class="cta-button" type="button">
-                                Proceed to Delivery & Review <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </section>
                 </div>
                 <div id="step2" class="step" style="display: none;">
                     <div class="order-form-section">
@@ -149,6 +136,22 @@
     </div>
 
     <div id="category-overlay" class="category-overlay" style="display: none;"></div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast" aria-live="polite">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">Added to cart!</span>
+    </div>
+
+    <!-- Image Lightbox -->
+    <div id="lightbox" class="lightbox" style="display: none;">
+        <button class="lightbox__close" aria-label="Close"><i class="fas fa-times"></i></button>
+        <img id="lightbox-img" class="lightbox__image" src="" alt="">
+        <div class="lightbox__info">
+            <h3 id="lightbox-title"></h3>
+            <p id="lightbox-price"></p>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container">
