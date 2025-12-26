@@ -11,20 +11,20 @@
       "display": 1
     },
     {
-      "id": "butterfriedvadapav",
-      "name": "Butter Fried Vadapav",
+      "id": "oilfriedvadapav",
+      "name": "Oil Fried Vadapav",
       "description": "Spicy potato fritter in soft bun",
-      "price": 40,
+      "price": 35,
       "unit": "piece",
       "emoji": "🍔",
       "image": "images/vadapav.jpeg",
       "display": 1
     },
     {
-      "id": "oilfriedvadapav",
-      "name": "Oil Fried Vadapav",
+      "id": "butterfriedvadapav",
+      "name": "Butter Fried Vadapav",
       "description": "Spicy potato fritter in soft bun",
-      "price": 35,
+      "price": 40,
       "unit": "piece",
       "emoji": "🍔",
       "image": "images/vadapav.jpeg",
@@ -133,6 +133,7 @@
     }
   ]
 }
+
 
 
 
