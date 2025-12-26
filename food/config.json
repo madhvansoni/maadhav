@@ -1,11 +1,11 @@
 {
   "deliveryDate": {
-    "date": "12 Dec 2025",
-    "dayName": "Friday"
+    "date": "27 Dec 2025",
+    "dayName": "Saturday"
   },
   "deliveryTime": {
     "startTime": "19:00",
-    "endTime": "20:00",
+    "endTime": "21:00",
     "intervalMinutes": 30
   },
   "googleSheets": {
@@ -14,4 +14,5 @@
     "sheetName": "Orders"
   }
 }
+
 
