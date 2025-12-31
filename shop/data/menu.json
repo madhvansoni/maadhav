@@ -29,7 +29,7 @@
           "id": "kunafa-bar",
           "name": "Kunafa Bar",
           "icon": "🎭",
-          "image": "shop/images/new_images/kunafa-mini-bar.jpeg",
+          "image": "shop/images/new_images/kunafa-bar.jpeg",
           "description": "Crunchy pistachio filled chocolate bar",
           "price": 300,
           "unitLabel": "300 per piece",
@@ -242,6 +242,7 @@
     }
   ]
 }
+
 
 
 
