@@ -4,7 +4,7 @@
       "id": "kunafa-specials",
       "name": "Kunafa Special Chocolates",
       "description": "Varieties in kunafa chocolates",
-      "items": [{
+      "items": [
         {
           "id": "kunafa-bites ",
           "name": "Kunafa bites",
@@ -35,7 +35,7 @@
           "unitLabel": "300 per piece",
           "bestSeller": true
         }
-      }]
+      ]
     },
     {
       "id": "flavoured-bites",
@@ -242,5 +242,6 @@
     }
   ]
 }
+
 
 
