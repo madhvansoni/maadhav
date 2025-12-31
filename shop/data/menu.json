@@ -13,7 +13,7 @@
           "description": "Crunchy pistachio filled chocolate bite",
           "price": 40,
           "unitLabel": "40 per piece",
-          "bestSeller": true
+          "bestSeller": false
         },
         {
           "id": "kunafa-mini-bar",
@@ -23,7 +23,7 @@
           "description": "Crunchy pistachio filled chocolate mini bar",
           "price": 100,
           "unitLabel": "100 per piece",
-          "bestSeller": true
+          "bestSeller": false
         },
         {
           "id": "kunafa-bar",
@@ -242,6 +242,7 @@
     }
   ]
 }
+
 
 
 
