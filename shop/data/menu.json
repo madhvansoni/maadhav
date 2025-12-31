@@ -1,56 +1,41 @@
 {
   "categories": [
     {
-      "id": "christmas-special",
-      "name": "🎄 Christmas Special",
-      "description": "Celebrate the festive season with our limited edition Christmas chocolates!",
-      "items": [
+      "id": "kunafa-specials",
+      "name": "Kunafa Special Chocolates",
+      "description": "Varieties in kunafa chocolates",
+      "items": [{
         {
-          "id": "dry-fruits-berries-lollipop",
-          "name": "Dry Fruits & Berries Lollipop",
-          "icon": "🍭",
-          "image": "shop/images/santa-dryfruit.jpeg",
-          "description": "Delicious lollipop chocolate loaded with dry fruits and berries.",
-          "price": 25,
-          "unitLabel": "₹25 per piece"
+          "id": "kunafa-bites ",
+          "name": "Kunafa bites",
+          "icon": "🎭",
+          "image": "shop/images/new_images/kunafa-bites.jpeg",
+          "description": "Crunchy pistachio filled chocolate bite",
+          "price": 40,
+          "unitLabel": "40 per piece",
+          "bestSeller": true
         },
         {
-          "id": "christmas-special-lollipop",
-          "name": "Christmas Special Lollipop",
-          "image": "shop/images/santa-theme-lollipop.jpeg",
-          "icon": "🎅",
-          "description": "Festive lollipop chocolate with special Christmas design.",
-          "price": 25,
-          "unitLabel": "₹25 per piece"
-        },
-        {
-          "id": "christmas-theme-set-small",
-          "name": "Christmas Theme Chocolate Set Small pack",
-          "image": "shop/images/santa-pack-of-6.jpeg",
-          "icon": "🎁",
-          "description": "Beautiful pack of 7 Christmas themed chocolates, perfect for gifting!",
-          "price": 70,
-          "unitLabel": "70 per pack of 7"
-        },
-        {
-          "id": "christmas-theme-set-big",
-          "name": "Christmas Theme Chocolate Set Big pack",
-          "image": "shop/images/santa-pack-of-9.jpeg",
-          "icon": "🎁",
-          "description": "Beautiful pack of 9 Christmas themed chocolates, perfect for gifting!",
+          "id": "kunafa-mini-bar",
+          "name": "Kunafa Mini Bar",
+          "icon": "🎭",
+          "image": "shop/images/new_images/kunafa-mini-bar.jpeg",
+          "description": "Crunchy pistachio filled chocolate mini bar",
           "price": 100,
-          "unitLabel": "100 per pack of 9"
+          "unitLabel": "100 per piece",
+          "bestSeller": true
         },
         {
-          "id": "santa-sweet-tree",
-          "name": "Santa's Sweet Trees",
-          "icon": "🎁",
-          "image": "shop/images/Christmas-Santa-Tree.jpeg",
-          "description": "Beautiful Tree shape chocolates, perfect for gifting!",
-          "price": 10,
-          "unitLabel": "10 per piece"
+          "id": "kunafa-bar",
+          "name": "Kunafa Bar",
+          "icon": "🎭",
+          "image": "shop/images/new_images/kunafa-mini-bar.jpeg",
+          "description": "Crunchy pistachio filled chocolate bar",
+          "price": 300,
+          "unitLabel": "300 per piece",
+          "bestSeller": true
         }
-      ]
+      }]
     },
     {
       "id": "flavoured-bites",
@@ -64,8 +49,8 @@
           "icon": "🎭",
           "image": "shop/images/new_images/pan-masala-pinata.jpeg",
           "description": "Traditional pan masala notes inside a chocolate shell.",
-          "price": 10,
-          "unitLabel": "10 per piece",
+          "price": 15,
+          "unitLabel": "15 per piece",
           "bestSeller": true
         },
         {
@@ -74,8 +59,8 @@
           "icon": "☕",
           "image": "shop/images/new_images/crispy-coffee-bites.jpeg",
           "description": "Espresso-infused chocolate with a crunchy finish.",
-          "price": 15,
-          "unitLabel": "15 per piece",
+          "price": 18,
+          "unitLabel": "18 per piece",
           "bestSeller": true
         },
         {
@@ -84,8 +69,8 @@
           "icon": "🧂",
           "image": "shop/images/new_images/salted_caramel_bite.jpeg",
           "description": "Soft caramel centre, finished with Maldon sea salt.",
-          "price": 12,
-          "unitLabel": "₹12 per piece"
+          "price": 15,
+          "unitLabel": "₹15 per piece"
         },
         {
           "id": "pineapple-crush-bite",
@@ -93,8 +78,8 @@
           "icon": "🍍",
           "image": "shop/images/new_images/pineapple_crush_bites.jpeg",
           "description": "Tropical pineapple puree wrapped in chocolate.",
-          "price": 12,
-          "unitLabel": "₹12 per piece"
+          "price": 15,
+          "unitLabel": "₹15 per piece"
         },
         {
           "id": "strawberry-crush-bite",
@@ -102,8 +87,8 @@
           "icon": "🍓",
           "image": "shop/images/new_images/strawberry_crush_bites.jpeg",
           "description": "Strawberry compote encased in creamy chocolate.",
-          "price": 12,
-          "unitLabel": "₹12 per piece"
+          "price": 15,
+          "unitLabel": "₹15 per piece"
         },
         {
           "id": "mixed-berry-white",
@@ -257,4 +242,5 @@
     }
   ]
 }
+
 
